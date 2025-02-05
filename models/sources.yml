@@ -1,0 +1,57 @@
+version: 2
+
+sources:
+# Sources listed below should closely resemble the names of your Fivetran connectors. Names are at your descretion. Schema's will mirror your destination schemas.
+
+  - name: logs_data 
+    schema: fivetran_log # Connector name.. don't change unless you named yours differently
+    tables:
+      - name: log
+      - name: user
+      - name: account
+      - name: destination
+
+  - name: aurora_postgres # this can be whatever I want
+    schema: connector_name_shemaA_name # Connector and first schema name for connector with MULTIPLE SCHEMAS
+    tables:
+      - name: us_states
+      - name: us_states_rollup
+        description: a rollup of the states table
+      - name: us_counties
+      - name: us_counties_recent
+      - name: colleges
+
+  - name: sql_server
+    schema: sql_server_dbo
+    tables:
+      - name: customers
+      - name: accounts
+      - name: clients
+      - name: stores
+      - name: transactions
+
+  - name: square
+    tables:
+     - name: employee
+     - name: employee_location
+     - name: employee_wage
+     - name: location_capability
+     - name: shift
+     - name: shift_break
+     - name: break_type
+     - name: workweek_history
+     - name: example_table
+       description: feel free to write some descriptions about your Fivetran loaded tables. This is an example
+       identifier: different_name_than_example_table
+       loaded_at_field: _fivetran_synced
+       freshness:
+         warn_after:
+           count: 6
+           period: hour
+         error_after:
+           count: 24
+           period: hour
+
+# For additional configuration, visit https://docs.getdbt.com/reference/source-properties
+        
+

@@ -1,0 +1,6 @@
+version: 2
+
+models:
+  - name: output_model
+    description: "A goofy model"
+

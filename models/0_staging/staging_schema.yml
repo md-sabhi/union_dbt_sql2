@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: staging_example_one
+    description: "Use this to talk a little about your model"
+    columns:
+      - name: _fivetran_deleted
+        description: "Fivetran's soft delete record"
+        tests:
+          - accepted_values:
+              values: ['False']
+  - name: staging_example_two
+    description: "Use this to talk a little about your model"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+          - accepted_values:
+              values: [12345]
