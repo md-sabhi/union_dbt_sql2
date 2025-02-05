@@ -1,7 +1,7 @@
 {% macro union_tables() %}
 
-{% set schema_pattern = '%covid%' %}
-{% set table_pattern = '%%' %}
+{% set schema_pattern = '%%' %}
+{% set table_pattern = '%aggregatedbenchmarkconsumptions%' %}
 {% set golden_schema_name = 'golden_schema' %}
 {% set relation = dbt_utils.get_relations_by_pattern(schema_pattern, table_pattern) %}
 
